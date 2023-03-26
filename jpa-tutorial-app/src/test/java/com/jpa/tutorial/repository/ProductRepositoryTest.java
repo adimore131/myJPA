@@ -3,11 +3,15 @@ package com.jpa.tutorial.repository;
 import com.jpa.tutorial.entity.Category;
 import com.jpa.tutorial.entity.Product;
 import com.jpa.tutorial.entity.ProductStatus;
+import org.junit.jupiter.api.MethodOrderer;
 import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.test.annotation.Commit;
+import org.springframework.test.annotation.Rollback;
 
 import java.util.HashSet;
 import java.util.List;
@@ -16,6 +20,9 @@ import java.util.Set;
 import static org.assertj.core.api.AssertionsForInterfaceTypes.assertThat;
 
 @DataJpaTest
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+//You can also run particular component by adding that classpath here into this context
+//@ComponentScan(basePackages = "com.jpa.tutorial.bootstrap")
 class ProductRepositoryTest {
     /// == Fields ==
     @Autowired
@@ -28,6 +35,8 @@ class ProductRepositoryTest {
     @Test
     @Order(1)
     @Commit
+    //OR you can use
+//    @Rollback(value = false)
     void testGetCategories(){
         Product product = new Product();
         product.setDescription("Product1");

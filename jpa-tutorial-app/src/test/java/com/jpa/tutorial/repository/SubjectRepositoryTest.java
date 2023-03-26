@@ -18,6 +18,8 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 class SubjectRepositoryTest {
     @Autowired
     SubjectRepository repo;
+
+
     @Test
     @Commit
     public void testCreateSubject(){

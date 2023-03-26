@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
-//@Entity //we don't wanna persist it as it's jsut demo
+//@Entity //we don't wanna persist it as it's just demo
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
